@@ -1,0 +1,1 @@
+This is the guideline of the CS4296-Project, of building a testing on different Protocal with EC2 instance.
