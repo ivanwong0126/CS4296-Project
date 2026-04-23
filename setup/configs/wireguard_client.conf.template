@@ -1,0 +1,9 @@
+[Interface]
+PrivateKey = PLACEHOLDER_CLIENT_PRIVATE_KEY
+Address = 10.8.0.2/32
+
+[Peer]
+PublicKey = PLACEHOLDER_SERVER_PUBLIC_KEY
+Endpoint = PLACEHOLDER_SERVER_PUBLIC_IP:51820
+AllowedIPs = 10.8.0.0/24
+PersistentKeepalive = 25

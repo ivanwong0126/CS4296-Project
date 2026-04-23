@@ -1,0 +1,10 @@
+[Interface]
+PrivateKey = PLACEHOLDER_SERVER_PRIVATE_KEY
+Address = 10.8.0.1/24
+ListenPort = 51820
+PostUp = iptables -t nat -A POSTROUTING -o ens5 -j MASQUERADE
+PostDown = iptables -t nat -D POSTROUTING -o ens5 -j MASQUERADE
+
+[Peer]
+PublicKey = PLACEHOLDER_CLIENT_PUBLIC_KEY
+AllowedIPs = 10.8.0.2/32

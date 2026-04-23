@@ -1,0 +1,37 @@
+{
+  "log": {"loglevel": "warning"},
+  "inbounds": [{
+    "port": 1080,
+    "listen": "127.0.0.1",
+    "protocol": "socks",
+    "settings": {
+      "auth": "noauth",
+      "udp": true
+    }
+  }],
+  "outbounds": [{
+    "protocol": "vless",
+    "settings": {
+      "vnext": [{
+        "address": "PLACEHOLDER_SERVER_IP",
+        "port": 443,
+        "users": [{
+          "id": "PLACEHOLDER_UUID",
+          "flow": "xtls-rprx-vision",
+          "encryption": "none"
+        }]
+      }]
+    },
+    "streamSettings": {
+      "network": "tcp",
+      "security": "reality",
+      "realitySettings": {
+        "fingerprint": "chrome",
+        "serverName": "www.microsoft.com",
+        "publicKey": "PLACEHOLDER_PUBLIC_KEY",
+        "shortId": "PLACEHOLDER_SHORT_ID",
+        "spiderX": "/"
+      }
+    }
+  }]
+}
