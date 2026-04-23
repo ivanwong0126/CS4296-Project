@@ -1,0 +1,120 @@
+ubuntu@ip-172-31-34-124:~$ curl -x socks5h://127.0.0.1:1080   -o /dev/null   -w "\nSpeed: %{speed_download} bytes/sec\nTime: %{time_total}s\n"   "http://3.95.232.17:8080/testfile_3gb.bin"
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 3072M  100 3072M    0     0   130M      0  0:00:23  0:00:23 --:--:--  124M
+
+Speed: 136985281 bytes/sec
+Time: 23.515121s
+
+
+ubuntu@ip-172-31-41-16:~$ while true; do   ps -p $PID -o rss= | awk '{printf "[%s] RSS: %.2f MB\n", strftime("%H:%M:%S"), $1/1024}';   sleep 2; done
+[15:27:01] RSS: 32.34 MB
+[15:27:03] RSS: 32.34 MB
+[15:27:05] RSS: 32.34 MB
+[15:27:07] RSS: 32.34 MB
+[15:27:09] RSS: 32.34 MB
+[15:27:11] RSS: 34.00 MB
+[15:27:13] RSS: 34.27 MB
+[15:27:15] RSS: 34.30 MB
+[15:27:17] RSS: 34.69 MB
+[15:27:19] RSS: 34.57 MB
+[15:27:21] RSS: 34.57 MB
+[15:27:23] RSS: 35.04 MB
+[15:27:25] RSS: 34.59 MB
+[15:27:27] RSS: 34.64 MB
+[15:27:29] RSS: 34.64 MB
+[15:27:31] RSS: 35.03 MB
+[15:27:33] RSS: 34.59 MB
+[15:27:35] RSS: 34.59 MB
+[15:27:38] RSS: 34.59 MB
+[15:27:40] RSS: 34.59 MB
+[15:27:42] RSS: 34.59 MB
+[15:27:44] RSS: 34.59 MB
+[15:27:46] RSS: 34.59 MB
+[15:27:48] RSS: 34.59 MB
+
+ubuntu@ip-172-31-34-124:~$ pidstat -u -G xray 1 60
+Linux 6.17.0-1007-aws (ip-172-31-34-124)        04/22/26        _x86_64_        (2 CPU)
+
+15:27:05      UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+
+15:27:06      UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+
+15:27:07      UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+
+15:27:08      UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+
+15:27:09      UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+15:27:10     1000     19076   19.00   42.00    0.00    0.00   61.00     0  xray
+
+15:27:10      UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+15:27:11     1000     19076   25.00   48.00    0.00    0.00   73.00     0  xray
+
+15:27:11      UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+15:27:12     1000     19076   23.00   39.00    0.00    0.00   62.00     0  xray
+
+15:27:12      UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+15:27:13     1000     19076   20.00   34.00    0.00    0.00   54.00     0  xray
+
+15:27:13      UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+15:27:14     1000     19076   19.00   30.00    0.00    0.00   49.00     0  xray
+
+15:27:14      UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+15:27:15     1000     19076   18.00   30.00    0.00    0.00   48.00     0  xray
+
+15:27:15      UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+15:27:16     1000     19076   18.00   30.00    0.00    0.00   48.00     0  xray
+
+15:27:16      UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+15:27:17     1000     19076   20.00   30.00    0.00    0.00   50.00     0  xray
+
+15:27:17      UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+15:27:18     1000     19076   18.00   31.00    0.00    0.00   49.00     0  xray
+
+15:27:18      UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+15:27:19     1000     19076   19.00   29.00    0.00    0.00   48.00     0  xray
+
+15:27:19      UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+15:27:20     1000     19076   18.00   31.00    0.00    0.00   49.00     0  xray
+
+15:27:20      UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+15:27:21     1000     19076   18.00   28.00    0.00    0.00   46.00     0  xray
+
+15:27:21      UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+15:27:22     1000     19076   18.00   31.00    0.00    0.00   49.00     0  xray
+
+15:27:22      UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+15:27:23     1000     19076   17.00   31.00    0.00    0.00   48.00     0  xray
+
+15:27:23      UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+15:27:24     1000     19076   19.00   28.00    0.00    0.00   47.00     0  xray
+
+15:27:24      UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+15:27:25     1000     19076   17.00   32.00    0.00    0.00   49.00     0  xray
+
+15:27:25      UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+15:27:26     1000     19076   17.00   32.00    0.00    0.00   49.00     0  xray
+
+15:27:26      UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+15:27:27     1000     19076   17.00   30.00    0.00    0.00   47.00     0  xray
+
+15:27:27      UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+15:27:28     1000     19076   21.00   29.00    0.00    0.00   50.00     0  xray
+
+15:27:28      UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+15:27:29     1000     19076   16.00   32.00    0.00    0.00   48.00     0  xray
+
+15:27:29      UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+15:27:30     1000     19076   17.00   32.00    0.00    0.00   49.00     0  xray
+
+15:27:30      UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+15:27:31     1000     19076   18.00   29.00    0.00    0.00   47.00     0  xray
+
+15:27:31      UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+15:27:32     1000     19076   12.00   22.00    0.00    0.00   34.00     0  xray
+
+15:27:32      UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+15:27:33     1000     19076   15.00   35.00    0.00    0.00   50.00     0  xray
+
+15:27:33      UID       PID    %usr %system  %guest   %wait    %CPU   CPU  Command
+
