@@ -9,6 +9,8 @@ CS4296 Project setup guide for testing 3 protocols on AWS EC2:
 - `config.env`: all shared variables
 - `setup/install_client.sh`: client installation and config
 - `setup/install_server.sh`: server installation and config
+- `benchmark/`: client benchmark scripts for Shadowsocks, Xray, and WireGuard
+- `result/`: manual/summary benchmark result text files
 
 ## Requirements
 
@@ -51,6 +53,17 @@ bash setup/install_client.sh
 ```
 
 After this, Shadowsocks, Xray, and WireGuard are all configured and started.
+
+## 3) Run benchmark scripts (Client)
+
+```bash
+bash benchmark/run_ss_benchmark.sh
+bash benchmark/run_xray_benchmark.sh
+bash benchmark/run_wireguard_benchmark.sh
+```
+
+Benchmark scripts save raw outputs to `results/ss`, `results/xray`, and `results/wireguard`.
+You can keep final summarized results in `result/`.
 
 ## Notes
 
