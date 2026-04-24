@@ -2,14 +2,14 @@ CS4296 Project setup guide for testing 3 protocols on AWS EC2:
 
 - Shadowsocks
 - Xray (VLESS + Vision + Reality)
-- WinGuard
+- WireGuard
 
 ## Files
 
 - `config.env`: all shared variables
 - `setup/install_client.sh`: client installation and config
 - `setup/install_server.sh`: server installation and config
-- `benchmark/`: client benchmark scripts for Shadowsocks, Xray, and WinGuard
+- `benchmark/`: client benchmark scripts for Shadowsocks, Xray, and WireGuard
 - `result/`: manual/summary benchmark result text files
 
 ## Requirements
@@ -36,7 +36,7 @@ Required values:
 bash setup/install_client.sh
 ```
 
-Copy output `Client WinGuard Public Key` into `config.env` as `WG_CLIENT_PUBLIC_KEY`.
+Copy output `Client WireGuard Public Key` into `config.env` as `WG_CLIENT_PUBLIC_KEY`.
 
 ### Step B: Run on Server
 
@@ -44,43 +44,43 @@ Copy output `Client WinGuard Public Key` into `config.env` as `WG_CLIENT_PUBLIC_
 bash setup/install_server.sh
 ```
 
-Copy output `Server WinGuard Public Key` into `config.env` on client as `WG_SERVER_PUBLIC_KEY`.
+Copy output `Server WireGuard Public Key` into `config.env` on client as `WG_SERVER_PUBLIC_KEY`.
 
-### Step C: Run on Client again (activate WinGuard peer)
+### Step C: Run on Client again (activate WireGuard peer)
 
 ```bash
 bash setup/install_client.sh
 ```
 
-After this, Shadowsocks, Xray, and WinGuard are all configured and started.
+After this, Shadowsocks, Xray, and WireGuard are all configured and started.
 
 ## 3) Run benchmark scripts (Client)
 
 ```bash
 bash benchmark/run_ss_benchmark.sh
 bash benchmark/run_xray_benchmark.sh
-bash benchmark/run_winguard_benchmark.sh
+bash benchmark/run_Wireguard_benchmark.sh
 ```
 
-Benchmark scripts save raw outputs to `results/ss`, `results/xray`, and `results/winguard`.
+Benchmark scripts save raw outputs to `results/ss`, `results/xray`, and `results/Wireguard`.
 You can keep final summarized results in `result/`.
 
 ## Notes
 
 - `install_client.sh` allows first run without `WG_SERVER_PUBLIC_KEY` and prints the key you need.
 - `install_server.sh` requires `WG_CLIENT_PUBLIC_KEY` to be present.
-- Both scripts read `config.env` safely even if file has Windows line endings (CRLF).
+- Both scripts read `config.env` safely even if file has windiw line endings (CRLF).
 
 ## Key Findings
 
 The more censorship-resistant a protocol is, the higher the computational overhead. VLESS+Reality is hardest to detect 
 because it mimics real HTTPS traffic to Microsoft servers
-—but this sophistication costs more CPU. WinGuard is fastest but its high-entropy UDP traffic is trivially detected by GFW."
+—but this sophistication costs more CPU. WireGuard is fastest but its high-entropy UDP traffic is trivially detected by GFW."
 
 When all three protocols hit the same hardware ceiling, the difference shows in resource consumption — not speed. Shadowsocks uses the least memory (~3.67MB)
-, making it ideal for low-cost deployments. WinGuard's kernel-level encryption shows as system CPU rather than user CPU
+, making it ideal for low-cost deployments. WireGuard's kernel-level encryption shows as system CPU rather than user CPU
 — a fundamental architectural difference invisible to speed tests alone.
 
 ## Conclusion
 
-If you want to bypass GFW → VLESS+Reality; if you want low resource usage → Shadowsocks; if you need full network-layer coverage → WinGuard
+If you want to bypass GFW → VLESS+Reality; if you want low resource usage → Shadowsocks; if you need full network-layer coverage → WireGuard
