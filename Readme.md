@@ -70,3 +70,17 @@ You can keep final summarized results in `result/`.
 - `install_client.sh` allows first run without `WG_SERVER_PUBLIC_KEY` and prints the key you need.
 - `install_server.sh` requires `WG_CLIENT_PUBLIC_KEY` to be present.
 - Both scripts read `config.env` safely even if file has Windows line endings (CRLF).
+
+## Key Findings
+
+The more censorship-resistant a protocol is, the higher the computational overhead. VLESS+Reality is hardest to detect 
+because it mimics real HTTPS traffic to Microsoft servers
+—but this sophistication costs more CPU. WireGuard is fastest but its high-entropy UDP traffic is trivially detected by GFW."
+
+When all three protocols hit the same hardware ceiling, the difference shows in resource consumption — not speed. Shadowsocks uses the least memory (~3.67MB)
+, making it ideal for low-cost deployments. WireGuard's kernel-level encryption shows as system CPU rather than user CPU
+— a fundamental architectural difference invisible to speed tests alone.
+
+## Conclusion
+
+If you want to bypass GFW → VLESS+Reality; if you want low resource usage → Shadowsocks; if you need full network-layer coverage → WireGuard
